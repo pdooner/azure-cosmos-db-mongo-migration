@@ -6,7 +6,7 @@
 # Generated on:  {{ gen_timestamp }}
 # Template:      wrangle_one_file_verbatim.txt
 
-source ./env.sh
+source env.sh
 
 echo ''
 echo 'first line of input file: {{ infile }}'

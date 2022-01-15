@@ -5,11 +5,14 @@
 
 source env.sh
 
-echo 'generating manifest ...'
+echo '---------------------------------'
+echo ' start generate_manifest.sh'
 
 python main.py generate_manifest
 
 echo ''
 echo "Note: the generated 'manifest.json' is used in code generation, so please don't edit it."
 echo ''
-echo 'done'
+
+echo 'end generate_manifest.sh'
+echo '---------------------------------'

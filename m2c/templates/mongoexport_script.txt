@@ -6,6 +6,9 @@
 # Generated on:  {{ gen_timestamp }}
 # Template:      mongoexport_script.txt
 
+echo '---------------------------------'
+echo 'start mongoexport_script.sh'
+
 source env.sh
 
 mkdir -p data/source/mongoexports
@@ -16,7 +19,9 @@ echo 'mongoexport:  database: {{ dbname }} container: {{ c['name'] }}'
 echo '    to file:  {{ outdir }}/{{ dbname }}__{{ c['name'] }}.json'
 
 {% if atlas == 'no' -%}
-mongoexport --authenticationDatabase admin -u $M2C_SOURCE_MONGODB_USER -p $M2C_SOURCE_MONGODB_PASS --uri {{ uri }} \
+mongoexport --host $M2C_SOURCE_MONGODB_HOST \
+    --port $M2C_SOURCE_MONGODB_PORT \
+    --forceTableScan \
     --db {{ dbname }} \
     --collection {{ c['name'] }} \
     --out {{ outdir }}/{{ dbname }}__{{ c['name'] }}.json
@@ -28,4 +33,7 @@ mongoexport \
     --out {{ outdir }}/{{ dbname }}__{{ c['name'] }}.json
 {% endif %}
 {% endfor %}
-echo 'done'
+
+echo 'end mongoexport_script.sh'
+echo '---------------------------------'
+

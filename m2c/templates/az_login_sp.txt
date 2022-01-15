@@ -5,7 +5,7 @@
 # Generated on:  {{ gen_timestamp }}
 # Template:      az_login_sp.txt
 
-source ./env.sh
+source env.sh
 
 echo 'logging in with service principal ...'
 az login --service-principal \

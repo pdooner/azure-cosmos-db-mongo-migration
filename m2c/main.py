@@ -37,6 +37,7 @@ from pysrc.manifest_generator import ManifestGenerator
 from pysrc.doc_generator import DocGenerator
 
 from pysrc.standard_mapping_generator import StandardMappingGenerator
+from pysrc.custom_mapping_generator import CustomMappingGenerator
 
 config = Config()
 manifest = Manifest()
@@ -115,7 +116,7 @@ def prune_coll_stats(stats):
     return stats
 
 def generate_mapping_file(dbname):
-    generator = StandardMappingGenerator(dbname)
+    generator = CustomMappingGenerator(dbname)
     generator.generate()
 
 def generate_artifacts(dbname):
@@ -174,6 +175,7 @@ def print_options(msg):
 if __name__ == "__main__":
     #print(sys.argv)
     if len(sys.argv) > 1:
+        start = time.time()
         func = sys.argv[1].lower()
 
         if func == 'generate_initial_scripts':
@@ -207,5 +209,11 @@ if __name__ == "__main__":
 
         else:
             print_options('Error: invalid function: {}'.format(func))
+
+        end = time.time()
+        delta = end - start
+        hours, remainder = divmod(delta, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        print('Elapsed ({}), {:02}:{:02}:{:02} (hh:mm:ss)'.format(sys.argv[1], int(hours), int(minutes), int(seconds)))
     else:
-            print_options('Error: no command-line args entered')
+        print_options('Error: no command-line args entered')

@@ -7,7 +7,7 @@
 # Generated on:  {{ gen_timestamp }}
 # Template:      wrangle_one_blob.txt
 
-source ./env.sh
+source env.sh
 
 mkdir -p tmp/{{ dbname }}/out
 mkdir -p out/{{ dbname }}

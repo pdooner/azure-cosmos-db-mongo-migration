@@ -5,12 +5,17 @@
 # text file 'migrated_databases_list.txt'
 # Chris Joakim, Microsoft, October 2021
 
+echo '---------------------------------'
+echo 'start generate_initial_scripts.sh'
+
 source env.sh
 
 ./create_directories.sh
 
 python main.py generate_initial_scripts
 
-chmod 744 *.sh  # make them executable
+# make them executable
+chmod 744 *.sh 
 
-echo 'done'
+echo 'finish generate_initial_scripts.sh'
+echo '---------------------------------'

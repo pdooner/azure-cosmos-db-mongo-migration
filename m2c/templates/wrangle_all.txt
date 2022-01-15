@@ -6,7 +6,7 @@
 # Generated on:  {{ gen_timestamp }}
 # Template:      wrangle_all.txt
 
-source ./env.sh
+source env.sh
 
 skip_download_flag=""  # set to "--skip-download" to bypass blob downloading
 

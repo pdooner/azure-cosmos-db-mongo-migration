@@ -48,6 +48,12 @@ class Config(object):
         else:
             # looks like -> mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/[defaultauthdb][?options]]
             # see https://docs.mongodb.com/manual/reference/connection-string/
+            # if no user name, assumes auth not enabled on source database.
+            if self.source_mongodb_user == "":
+                return 'mongodb://{}:{}/{}'.format(
+                    self.source_mongodb_host,
+                    self.source_mongodb_port,
+                    dbname)
             return 'mongodb://{}:{}@{}:{}/{}'.format(
                 self.source_mongodb_user,
                 self.source_mongodb_pass,

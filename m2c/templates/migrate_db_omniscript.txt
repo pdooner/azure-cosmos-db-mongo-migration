@@ -21,7 +21,7 @@ verify_wrangled_blobs_file="tmp/omniscript_{{ dbname }}_wrangled_blobs.json"
 verify_target_cosmos_db_file="tmp/omniscript_{{ dbname }}_target_cosmos_db.json"
 report_target_cosmos_db_file="tmp/omniscript_{{ dbname }}_target_cosmos_db_report.json"
 
-source ./env.sh
+source env.sh
 
 mkdir -p tmp
 rm $verify_storage_containers_file
