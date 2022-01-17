@@ -39,7 +39,7 @@ class OmniscriptValidator(object):
         self.errfile = '{}.errors.json'.format(self.outfile) 
         self.config = Config()
         self.manifest = Manifest()
-        self.stor = StorageUtil()
+#        self.stor = StorageUtil()
         self.verbose = False
         for arg in args:
             if arg == '--verbose':

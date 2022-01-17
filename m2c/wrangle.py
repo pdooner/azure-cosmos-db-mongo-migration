@@ -37,7 +37,7 @@ class Transformer(object):
         self.start_time = time.time()
         self.args = args
         self.config = Config()
-        self.stor = StorageUtil()
+#        self.stor = StorageUtil()
         self.infile = None
         self.status = 'constructor'
         self.elapsed_time = -1
