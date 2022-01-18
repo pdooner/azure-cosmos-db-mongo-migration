@@ -34,7 +34,7 @@ class Validator(object):
         self.args = args
         self.config = Config()
         self.manifest = Manifest()
-        self.stor = StorageUtil()
+#        self.stor = StorageUtil()
         self.verbose = False
         for arg in args:
             if arg == '--verbose':
