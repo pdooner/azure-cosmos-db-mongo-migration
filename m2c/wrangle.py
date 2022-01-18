@@ -27,6 +27,7 @@ from bson.objectid import ObjectId
 
 from pysrc.config import Config
 from pysrc.standard_doc_wrangler import StandardDocumentWrangler
+from pysrc.custom_doc_wrangler import CustomDocumentWrangler
 
 from storage import StorageUtil
 
@@ -68,7 +69,8 @@ class Transformer(object):
         print(json.dumps(self.mappings, indent=2, sort_keys=False))
 
         # Configure wrangling logic
-        self.doc_wrangler = StandardDocumentWrangler(self.mappings)
+#        self.doc_wrangler = StandardDocumentWrangler(self.mappings)
+        self.doc_wrangler = CustomDocumentWrangler(self.mappings)
         self.wrangling_algorithm = self.mappings['mapping']['wrangling_algorithm'].strip().lower()
         print('wrangling_algorithm: {}'.format(self.wrangling_algorithm))
         self.pk_name = self.mappings['mapping']['pk_name'].strip().lower()
